@@ -49,3 +49,10 @@ export const getTreeSelectData = () => {
     method: 'get'
   })
 }
+
+export const getTestData = () => {
+  return axios.request({
+    url: 'gitList/testData',
+    method: 'get'
+  })
+}
