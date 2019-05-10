@@ -13,6 +13,13 @@ const USER_MAP = {
     access: ['admin'],
     token: 'admin',
     avator: 'https://avatars0.githubusercontent.com/u/20942571?s=460&v=4'
+  },
+  hr: {
+    name: 'hr',
+    user_id: '3',
+    access: ['hr'],
+    token: 'hr',
+    avator: 'https://avatars0.githubusercontent.com/u/20942571?s=460&v=4'
   }
 }
 

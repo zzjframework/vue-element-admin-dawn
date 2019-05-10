@@ -73,6 +73,16 @@ export default {
     messageTrashCount: state => state.messageTrashList.length
   },
   actions: {
+    // 设置权限
+    getUserRole ({ commit }, { user }) {
+      console.log(user)
+      commit('setAvator', user.avator)
+      commit('setUserName', user.name)
+      commit('setUserId', user.user_id)
+      commit('setAccess', user.access)
+      commit('setHasGetInfo', true)
+      commit('setToken', user.token)
+    },
     // 登录
     handleLogin ({ commit }, { userName, password }) {
       userName = userName.trim()
@@ -81,6 +91,8 @@ export default {
           userName,
           password
         }).then(res => {
+          console.log('login:' + res)
+          console.log(resolve)
           const data = res.data
           commit('setToken', data.token)
           resolve()
@@ -108,14 +120,15 @@ export default {
     // 获取用户相关信息
     getUserInfo ({ state, commit }) {
       return new Promise((resolve, reject) => {
+        console.log(state)
         try {
           getUserInfo(state.token).then(res => {
             const data = res.data
-            commit('setAvator', data.avator)
-            commit('setUserName', data.name)
-            commit('setUserId', data.user_id)
+            // commit('setAvator', data.avator)
+            // commit('setUserName', data.name)
+            // commit('setUserId', data.user_id)
             commit('setAccess', data.access)
-            commit('setHasGetInfo', true)
+            // commit('setHasGetInfo', true)
             resolve(data)
           }).catch(err => {
             reject(err)
